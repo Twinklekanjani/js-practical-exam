@@ -47,42 +47,39 @@
               <a class="nav-link" href="./view-task.html">View-Page</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
 
     <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-8">
-                <h2>Data of Manager:-</h2>
-                <table class="table table-bordered mt-4" id="table">
-                    <thead>
-                        <tr>
-                            <th>Sr.No</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Due Date</th>
-                            <th>Priority</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-3">
+          <input
+            type="text"
+            id="searchTask"
+            class="form-control"
+            placeholder="Search by title"
+          />
         </div>
+      </div>
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+          <h2>Data of Manager:-</h2>
+          <table class="table table-bordered mt-4" id="table">
+            <thead>
+              <tr>
+                <th>Sr.No</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
     </div>
     <!-- Bootstrap JavaScript Libraries -->
     <script

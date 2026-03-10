@@ -15,22 +15,24 @@ taskinputs?.forEach((input)=>{
 
 submit?.addEventListener('submit',(e)=>{
     e.preventDefault();
+
     if(data.id){
-        list=list.map((item)=>{
+        list = list.map((item)=>{
             if(item.id == data.id){
                 return data;
             }
             return item;
         })
-        edituser = {};
+        localStorage.removeItem('edituser'); 
         data = {};
     }
     else{
-    list.push({...data,id:Date.now()})
+        list.push({...data,id:Date.now()})
     }
-    location.href='./view-task.html';
+
     localStorage.setItem('userlist',JSON.stringify(list));
-    form.reset();
+    submit.reset();
+    location.href='./view-task.html';
 })
 
 const handleDisplay = (list)=>{
@@ -67,7 +69,7 @@ const handleDelete =(id)=>{
 const handleEdit = (id)=>{
     let data = list.find(item => item.id == id)
     localStorage.setItem('edituser',JSON.stringify(data));
-    location.href = './add-to-task.html';
+    location.href = './edit-task.html';
 }
 
 const Displayedituser = ()=>{
@@ -81,3 +83,17 @@ if(edituser.id){
     data = edituser;
     Displayedituser();
 }
+
+const searchInput = document.getElementById('searchTask');
+
+searchInput?.addEventListener('input',(e)=>{
+
+    let {value} = e.target;
+
+    let filteredList = list.filter((item)=>{
+        return item.title.toLowerCase().includes(value.toLowerCase());
+    });
+
+    handleDisplay(filteredList);
+
+});
